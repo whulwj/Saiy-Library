@@ -17,7 +17,7 @@
 
 package ai.saiy.android.api.language.vr;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.util.Log;
 
 import java.util.Locale;

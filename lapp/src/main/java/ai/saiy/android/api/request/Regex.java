@@ -17,7 +17,7 @@
 
 package ai.saiy.android.api.request;
 
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 
 import ai.saiy.android.api.Defaults;
@@ -53,8 +53,7 @@ public enum Regex {
                 return Regex.valueOf(regex);
             } catch (final IllegalArgumentException e) {
                 if (DEBUG) {
-                    Log.w(CLS_NAME, "getRegex IllegalArgumentException");
-                    e.printStackTrace();
+                    Log.w(CLS_NAME, "getRegex IllegalArgumentException:" + e.getMessage());
                 }
             }
         }

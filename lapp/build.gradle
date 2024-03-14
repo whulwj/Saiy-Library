@@ -14,19 +14,29 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-apply plugin: 'com.android.library'
+plugins {
+    alias(libs.plugins.androidLibrary)
+}
 
 android {
-
-    compileSdkVersion 27
-    buildToolsVersion '27.0.3'
+    namespace 'ai.saiy.android.api'
+    compileSdk 27
 
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 27
         versionCode 3
         versionName "1.0.3"
+    }
+
+    sourceSets {
+        main {
+            aidl.srcDirs = ['src/main/aidl']
+        }
+    }
+
+    buildFeatures {
+        aidl = true
     }
 
     buildTypes {
@@ -37,13 +47,13 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:support-annotations:27.1.0'
-    testImplementation 'junit:junit:4.12'
+    implementation libs.annotation
+    testImplementation libs.junit
 }

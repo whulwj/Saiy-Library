@@ -20,7 +20,7 @@ package ai.saiy.android.api;
 import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import ai.saiy.android.api.language.nlu.NLULanguageAPIAI;
 import ai.saiy.android.api.language.nlu.NLULanguageMicrosoft;
