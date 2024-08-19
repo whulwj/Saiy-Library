@@ -83,8 +83,6 @@ public class SaiyRequestParams {
     private Uri NUANCE_SERVER_URI = Uri.parse("_your_server_uri_here");
     private Uri NUANCE_SERVER_URI_NLU = Uri.parse("_your_server_uri_here");
 
-    private String API_AI_ACCESS_TOKEN = "_your_access_token_here";
-
     private String OXFORD_KEY_1 = "_your_api_key_here";
     private String OXFORD_KEY_2 = "_your_api_key_here";
     private String LUIS_APP_ID = "_your_app_id_here";
@@ -529,24 +527,6 @@ public class SaiyRequestParams {
      */
     public void setLanguageModel(@NonNull final Defaults.LanguageModel languageModel) {
         this.languageModel = languageModel;
-    }
-
-    /**
-     * Get the API AI access token
-     *
-     * @return the access token
-     */
-    public String getAPI_AI_ACCESS_TOKEN() {
-        return API_AI_ACCESS_TOKEN;
-    }
-
-    /**
-     * Set the API AI access token
-     *
-     * @param API_AI_ACCESS_TOKEN the access token
-     */
-    public void setAPI_AI_ACCESS_TOKEN(@NonNull final String API_AI_ACCESS_TOKEN) {
-        this.API_AI_ACCESS_TOKEN = API_AI_ACCESS_TOKEN;
     }
 
     /**

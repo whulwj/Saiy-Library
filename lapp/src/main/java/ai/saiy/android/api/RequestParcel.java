@@ -57,7 +57,6 @@ public class RequestParcel implements Parcelable {
     private String NUANCE_SERVER_URI;
     private String NUANCE_SERVER_URI_NLU;
     private String NUANCE_CONTEXT_TAG;
-    private String API_AI_CLIENT_ACCESS_TOKEN;
     private String OXFORD_KEY_1;
     private String OXFORD_KEY_2;
     private String LUIS_APP_ID;
@@ -112,7 +111,6 @@ public class RequestParcel implements Parcelable {
                          @NonNull final Uri NUANCE_SERVER_URI,
                          @NonNull final Uri NUANCE_SERVER_URI_NLU,
                          @NonNull final String NUANCE_CONTEXT_TAG,
-                         @NonNull final String API_AI_CLIENT_ACCESS_TOKEN,
                          @NonNull final String OXFORD_KEY_1,
                          @NonNull final String OXFORD_KEY_2,
                          @NonNull final String LUIS_APP_ID,
@@ -148,7 +146,6 @@ public class RequestParcel implements Parcelable {
         this.NUANCE_SERVER_URI = NUANCE_SERVER_URI.toString();
         this.NUANCE_SERVER_URI_NLU = NUANCE_SERVER_URI_NLU.toString();
         this.NUANCE_CONTEXT_TAG = NUANCE_CONTEXT_TAG;
-        this.API_AI_CLIENT_ACCESS_TOKEN = API_AI_CLIENT_ACCESS_TOKEN;
         this.OXFORD_KEY_1 = OXFORD_KEY_1;
         this.OXFORD_KEY_2 = OXFORD_KEY_2;
         this.LUIS_APP_ID = LUIS_APP_ID;
@@ -193,7 +190,6 @@ public class RequestParcel implements Parcelable {
         out.writeString(this.NUANCE_SERVER_URI);
         out.writeString(this.NUANCE_SERVER_URI_NLU);
         out.writeString(this.NUANCE_CONTEXT_TAG);
-        out.writeString(this.API_AI_CLIENT_ACCESS_TOKEN);
         out.writeString(this.OXFORD_KEY_1);
         out.writeString(this.OXFORD_KEY_2);
         out.writeString(this.LUIS_APP_ID);
@@ -232,7 +228,6 @@ public class RequestParcel implements Parcelable {
         this.NUANCE_SERVER_URI = in.readString();
         this.NUANCE_SERVER_URI_NLU = in.readString();
         this.NUANCE_CONTEXT_TAG = in.readString();
-        this.API_AI_CLIENT_ACCESS_TOKEN = in.readString();
         this.OXFORD_KEY_1 = in.readString();
         this.OXFORD_KEY_2 = in.readString();
         this.LUIS_APP_ID = in.readString();
@@ -360,14 +355,6 @@ public class RequestParcel implements Parcelable {
 
     public void setNUANCE_CONTEXT_TAG(@NonNull final String NUANCE_CONTEXT_TAG) {
         this.NUANCE_CONTEXT_TAG = NUANCE_CONTEXT_TAG;
-    }
-
-    public String getAPI_AI_CLIENT_ACCESS_TOKEN() {
-        return API_AI_CLIENT_ACCESS_TOKEN;
-    }
-
-    public void setAPI_AI_CLIENT_ACCESS_TOKEN(@NonNull final String API_AI_CLIENT_ACCESS_TOKEN) {
-        this.API_AI_CLIENT_ACCESS_TOKEN = API_AI_CLIENT_ACCESS_TOKEN;
     }
 
     public String getLUIS_APP_ID() {

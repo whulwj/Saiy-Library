@@ -359,7 +359,6 @@ public class SaiyRequest {
                     params.getNUANCE_SERVER_URI(),
                     params.getNUANCE_SERVER_URI_NLU(),
                     params.getNUANCE_CONTEXT_TAG(),
-                    params.getAPI_AI_ACCESS_TOKEN(),
                     params.getOXFORD_KEY_1(),
                     params.getOXFORD_KEY_2(),
                     params.getLUIS_APP_ID(),
@@ -682,7 +681,7 @@ public class SaiyRequest {
                     Log.i(CLS_NAME, "checkAPIKey: " + Defaults.LanguageModel.API_AI);
                 }
 
-                if (checkAPIAIConfig()) {
+                if (checkGoogleCloudConfig()) {
                     if (DEBUG) {
                         Log.i(CLS_NAME, "checkAPIKey: API key present");
                     }
@@ -690,7 +689,7 @@ public class SaiyRequest {
                 } else {
                     if (DEBUG) {
                         Log.e(CLS_NAME, "checkAPIKey: API data error");
-                        throw RemoteError.throwUnknownAPIKeyAPIAI(wContext.get());
+                        throw RemoteError.throwUnknownGoogleCloudConfig(wContext.get());
                     } else {
                         return false;
                     }
@@ -855,14 +854,6 @@ public class SaiyRequest {
         }
 
         return true;
-    }
-
-    private boolean checkAPIAIConfig() {
-        if (DEBUG) {
-            Log.i(CLS_NAME, "checkAPIAIConfig");
-        }
-
-        return !params.getAPI_AI_ACCESS_TOKEN().startsWith(_YOUR_);
     }
 
     private boolean checkWitConfig() {

@@ -65,10 +65,6 @@ public class RemoteError extends RuntimeException {
         return new RemoteError(ctx.getString(R.string.error_api_google_cloud));
     }
 
-    public static RemoteError throwUnknownAPIKeyAPIAI(@NonNull final Context ctx) {
-        return new RemoteError(ctx.getString(R.string.error_api_api_ai));
-    }
-
     public static RemoteError throwUnknownAPIKeyMicrosoft(@NonNull final Context ctx) {
         return new RemoteError(ctx.getString(R.string.error_api_microsoft));
     }

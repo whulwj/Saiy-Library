@@ -29,25 +29,26 @@ import ai.saiy.android.api.Defaults;
 
 /**
  * Created by benrandall76@gmail.com on 29/09/2016.
+ * <a href="https://cloud.google.com/dialogflow/es/docs/reference/language" />
  */
 
 public enum NLULanguageAPIAI {
 
-    PORTUGUESE_PORTUGAL("PT"),
-    PORTUGUESE_BRAZIL("PT-BR"),
-    CHINESE_CANTONESE("ZH-HK"),
-    CHINESE_SIMPLIFIED("ZH-CN"),
-    CHINESE_TRADITIONAL("ZH-TW"),
-    ENGLISH("EN"),
-    DUTCH("NL"),
-    FRENCH("FR"),
-    GERMAN("DE"),
-    ITALIAN("IT"),
-    JAPANESE("JA"),
-    KOREAN("KO"),
-    RUSSIAN("RU"),
-    SPANISH("ES"),
-    UKRAINIAN("UK");
+    PORTUGUESE_PORTUGAL("pt"),
+    PORTUGUESE_BRAZIL("pt-br"),
+    CHINESE_CANTONESE("zh-hk"),
+    CHINESE_SIMPLIFIED("zh-cn"),
+    CHINESE_TRADITIONAL("zh-tw"),
+    ENGLISH("en"),
+    DUTCH("nl"),
+    FRENCH("fr"),
+    GERMAN("de"),
+    ITALIAN("it"),
+    JAPANESE("ja"),
+    KOREAN("ko"),
+    RUSSIAN("ru"),
+    SPANISH("es"),
+    UKRAINIAN("uk");
 
     private static final boolean DEBUG = Defaults.getLogging();
     private static final String CLS_NAME = NLULanguageAPIAI.class.getSimpleName();

@@ -44,7 +44,6 @@
     <string name="error_api_nuance" translatable="true">"You have failed to include your Nuance API key in the SaiyConfiguration class"</string>
     <string name="error_api_nuance_nlu" translatable="true">"The Nuance HOST must be set to nmsps.dev.nuance.com
         to use Mix.nlu"</string>
-    <string name="error_api_api_ai" translatable="true">"You have failed to include your API AI credentials in the SaiyConfiguration class"</string>
     <string name="error_api_microsoft" translatable="true">"You have failed to include your microsoft credentials in the SaiyConfiguration class"</string>
     <string name="error_api_wit" translatable="true">"You have failed to include your Wit credentials in the SaiyConfiguration class"</string>
     <string name="error_api_ibm" translatable="true">"You have failed to include your IBM credentials in the SaiyConfiguration class"</string>
@@ -73,7 +72,6 @@
     <string name="error_lm_invalid" translatable="true">"Unknown Defaults.LanguageModel request is being ignored"</string>
     <string name="error_nuance_config" translatable="true">"NUANCE API config error - request is being ignored"</string>
     <string name="error_microsoft_config" translatable="true">"MICROSOFT API config error - request is being ignored"</string>
-    <string name="error_api_ai_config" translatable="true">"API AI API config error - request is being ignored"</string>
     <string name="error_google_config" translatable="true">"GOOGLE API key missing - request is being ignored"</string>
     <string name="error_remote_config" translatable="true">"REMOTE config error - request is being ignored"</string>
 
