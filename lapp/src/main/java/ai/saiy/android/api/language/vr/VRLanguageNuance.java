@@ -17,8 +17,9 @@
 
 package ai.saiy.android.api.language.vr;
 
-import androidx.annotation.NonNull;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
 
 import java.util.Locale;
 import java.util.MissingResourceException;

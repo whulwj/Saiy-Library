@@ -17,8 +17,9 @@
 
 package ai.saiy.android.api.request;
 
-import androidx.annotation.Nullable;
 import android.util.Log;
+
+import androidx.annotation.Nullable;
 
 import ai.saiy.android.api.Defaults;
 

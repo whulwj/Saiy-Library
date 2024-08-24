@@ -17,20 +17,21 @@
 
 package ai.saiy.android.api.request;
 
+import static ai.saiy.android.api.request.SaiyRequest.REMOTE_PKG_NAME;
+
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
 
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 import ai.saiy.android.api.Defaults;
-
-import static ai.saiy.android.api.request.SaiyRequest.REMOTE_PKG_NAME;
 
 /**
  * Created by benrandall76@gmail.com on 26/04/2016.
@@ -194,7 +195,6 @@ public class SaiyKeyphrase {
         } else {
 
             try {
-                //noinspection ResultOfMethodCallIgnored
                 Pattern.compile(keyphrase);
 
                 if (keyphrase.replaceAll("\\s", "").isEmpty()) {
@@ -229,9 +229,7 @@ public class SaiyKeyphrase {
             switch (regex) {
 
                 case MATCHES:
-                    break;
                 case STARTS_WITH:
-                    break;
                 case ENDS_WITH:
                     break;
                 case CONTAINS:
@@ -248,7 +246,6 @@ public class SaiyKeyphrase {
         if (regularExpression != null) {
 
             try {
-                //noinspection ResultOfMethodCallIgnored
                 Pattern.compile(regularExpression);
             } catch (final PatternSyntaxException e) {
                 Log.e(CLS_NAME, "The regular expression was malformed");

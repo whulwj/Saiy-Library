@@ -18,8 +18,9 @@
 package ai.saiy.android.api.utils;
 
 import android.content.res.Resources;
-import androidx.annotation.NonNull;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
 
 import java.util.Locale;
 import java.util.MissingResourceException;
