@@ -75,7 +75,7 @@ public enum VRLanguageNuance {
     UKRAINIAN("ukr-UKR"),
     VIETNAMESE("vie-VNM");
 
-    private static final boolean DEBUG = Defaults.getLogging();
+    private static final boolean DEBUG = Defaults.DEBUG;
     private static final String CLS_NAME = VRLanguageNuance.class.getSimpleName();
 
     private final String localeString;
@@ -118,7 +118,7 @@ public enum VRLanguageNuance {
                 locale = new Locale(tokens.nextToken(), tokens.nextToken());
 
                 if (DEBUG) {
-                    Log.i(CLS_NAME, "locale: " + locale.toString());
+                    Log.i(CLS_NAME, "locale: " + locale);
                 }
 
                 if (locale.equals(iso3Locale)) {
@@ -149,7 +149,7 @@ public enum VRLanguageNuance {
                 locale = new Locale(tokens.nextToken(), tokens.nextToken());
 
                 if (DEBUG) {
-                    Log.i(CLS_NAME, "locale: " + locale.toString());
+                    Log.i(CLS_NAME, "locale: " + locale);
                 }
 
                 // Perhaps this should not return true for many cases.
@@ -197,7 +197,7 @@ public enum VRLanguageNuance {
                 locale = new Locale(tokens.nextToken(), tokens.nextToken());
 
                 if (DEBUG) {
-                    Log.i(CLS_NAME, "locale: " + locale.toString());
+                    Log.i(CLS_NAME, "locale: " + locale);
                 }
 
                 if (locale.equals(iso3Locale)) {
@@ -228,7 +228,7 @@ public enum VRLanguageNuance {
                 locale = new Locale(tokens.nextToken(), tokens.nextToken());
 
                 if (DEBUG) {
-                    Log.i(CLS_NAME, "locale: " + locale.toString());
+                    Log.i(CLS_NAME, "locale: " + locale);
                 }
 
                 // Perhaps this should not return true for many cases.

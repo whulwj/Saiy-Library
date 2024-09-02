@@ -71,7 +71,7 @@ import ai.saiy.android.api.utils.LocalUtils;
  */
 public class SaiyRequest {
 
-    private static final boolean DEBUG = Defaults.getLogging();
+    private static final boolean DEBUG = Defaults.DEBUG;
     private static final String CLS_NAME = SaiyRequest.class.getSimpleName();
 
     public static final String CONTROL_SAIY = "ai.saiy.android.permission.CONTROL_SAIY";
@@ -175,7 +175,7 @@ public class SaiyRequest {
 
                                             if (DEBUG) {
                                                 for (Locale loc : ttsLocales) {
-                                                    Log.i(CLS_NAME, "ttsLocales: " + loc.toString());
+                                                    Log.i(CLS_NAME, "ttsLocales: " + loc);
                                                 }
                                             }
                                         }
@@ -198,14 +198,14 @@ public class SaiyRequest {
                                                 } catch (final IllegalArgumentException e) {
                                                     if (DEBUG) {
                                                         Log.e(CLS_NAME, "isLanguageAvailable: IllegalArgumentException: "
-                                                                + loc.toString());
+                                                                + loc);
                                                     }
                                                 }
                                             }
 
                                             if (DEBUG) {
                                                 for (Locale loc : ttsLocales) {
-                                                    Log.i(CLS_NAME, "ttsLocales: " + loc.toString());
+                                                    Log.i(CLS_NAME, "ttsLocales: " + loc);
                                                 }
                                             }
                                         }
@@ -878,24 +878,28 @@ public class SaiyRequest {
         if (DEBUG) {
             Log.i(CLS_NAME, "checkMicrosoftConfig");
         }
+        if (params == null) {
+            if (DEBUG) {
+                Log.w(CLS_NAME, "checkMicrosoftConfig");
+            }
+            return false;
+        }
 
-        switch (params.getLanguageModel()) {
+        if (Defaults.LanguageModel.MICROSOFT == params.getLanguageModel()) {
+            if (DEBUG) {
+                Log.i(CLS_NAME, "checkMicrosoftConfig: LanguageModel.MICROSOFT");
+            }
 
-            case MICROSOFT:
-                if (DEBUG) {
-                    Log.i(CLS_NAME, "checkMicrosoftConfig: LanguageModel.MICROSOFT");
-                }
-
-                return !params.getOXFORD_KEY_1().startsWith(_YOUR_)
-                        && !params.getOXFORD_KEY_2().startsWith(_YOUR_)
-                        && !params.getLUIS_APP_ID().startsWith(_YOUR_)
-                        && !params.getLUIS_SUBSCRIPTION_ID().startsWith(_YOUR_);
-            default:
-                if (DEBUG) {
-                    Log.i(CLS_NAME, "checkMicrosoftConfig: LanguageModel.DEFAULT");
-                }
-                return !params.getOXFORD_KEY_1().startsWith(_YOUR_)
-                        && !params.getOXFORD_KEY_2().startsWith(_YOUR_);
+            return !params.getOXFORD_KEY_1().startsWith(_YOUR_)
+                    && !params.getOXFORD_KEY_2().startsWith(_YOUR_)
+                    && !params.getLUIS_APP_ID().startsWith(_YOUR_)
+                    && !params.getLUIS_SUBSCRIPTION_ID().startsWith(_YOUR_);
+        } else {
+            if (DEBUG) {
+                Log.i(CLS_NAME, "checkMicrosoftConfig: LanguageModel.DEFAULT");
+            }
+            return !params.getOXFORD_KEY_1().startsWith(_YOUR_)
+                    && !params.getOXFORD_KEY_2().startsWith(_YOUR_);
         }
     }
 
@@ -918,82 +922,80 @@ public class SaiyRequest {
         if (DEBUG) {
             Log.i(CLS_NAME, "checkNuanceConfig");
         }
-
-        switch (params.getTTSProvider()) {
-
-            case NETWORK_NUANCE:
-                if (DEBUG) {
-                    Log.i(CLS_NAME, "checkAPIKey: Defaults.TTS.NUANCE");
-                }
-
-                if (params.getNUANCE_APP_KEY().startsWith(_YOUR_)) {
-                    if (DEBUG) {
-                        Log.e(CLS_NAME, "checkNuanceConfig: Defaults.TTS.NUANCE: API key missing");
-                    }
-                    return false;
-                } else if (params.getNUANCE_SERVER_URI().toString().startsWith(_YOUR_)) {
-                    if (DEBUG) {
-                        Log.e(CLS_NAME, "checkNuanceConfig: Defaults.TTS.NUANCE: URI missing");
-                    }
-                    return false;
-                } else {
-                    if (DEBUG) {
-                        Log.i(CLS_NAME, "checkNuanceConfig: Defaults.TTS.NUANCE: Credentials present");
-                    }
-                    return true;
-                }
+        if (params == null) {
+            if (DEBUG) {
+                Log.w(CLS_NAME, "checkNuanceConfig");
+            }
+            return false;
         }
 
-        switch (params.getLanguageModel()) {
+        if (Defaults.TTS.NETWORK_NUANCE == params.getTTSProvider()) {
+            if (DEBUG) {
+                Log.i(CLS_NAME, "checkAPIKey: Defaults.TTS.NUANCE");
+            }
 
-            case NUANCE:
+            if (params.getNUANCE_APP_KEY().startsWith(_YOUR_)) {
                 if (DEBUG) {
-                    Log.i(CLS_NAME, "checkNuanceConfig: LanguageModel.NUANCE");
+                    Log.e(CLS_NAME, "checkNuanceConfig: Defaults.TTS.NUANCE: API key missing");
                 }
-
-                if (params.getNUANCE_CONTEXT_TAG().startsWith(_YOUR_)) {
-                    if (DEBUG) {
-                        Log.e(CLS_NAME, "checkNuanceConfig: LanguageModel.NUANCE_NLU: CONTEXT TAG missing");
-                    }
-                    return false;
-                } else if (!params.getNUANCE_SERVER_URI_NLU().toString().contains(NUANCE_NLU_HOST)) {
-                    if (DEBUG) {
-                        Log.e(CLS_NAME, "checkNuanceConfig: LanguageModel.NUANCE_NLU HOST requires " + NUANCE_NLU_HOST);
-                    }
-                    return false;
-                } else {
-                    if (DEBUG) {
-                        Log.i(CLS_NAME, "checkNuanceConfig: LanguageModel.NUANCE_NLU: Credentials present");
-                    }
-                    return true;
+                return false;
+            } else if (params.getNUANCE_SERVER_URI().toString().startsWith(_YOUR_)) {
+                if (DEBUG) {
+                    Log.e(CLS_NAME, "checkNuanceConfig: Defaults.TTS.NUANCE: URI missing");
                 }
-
-            default:
-
-                switch (params.getVRProvider()) {
-
-                    case NUANCE:
-                        if (DEBUG) {
-                            Log.i(CLS_NAME, "checkNuanceConfig: PROVIDER_VR.NUANCE");
-                        }
-
-                        if (params.getNUANCE_APP_KEY().startsWith(_YOUR_)) {
-                            if (DEBUG) {
-                                Log.e(CLS_NAME, "checkNuanceConfig: PROVIDER_VR.NUANCE: API key missing");
-                            }
-                            return false;
-                        } else if (params.getNUANCE_SERVER_URI().toString().startsWith(_YOUR_)) {
-                            if (DEBUG) {
-                                Log.e(CLS_NAME, "checkNuanceConfig: PROVIDER_VR.NUANCE: URI missing");
-                            }
-                            return false;
-                        } else {
-                            if (DEBUG) {
-                                Log.i(CLS_NAME, "checkNuanceConfig: PROVIDER_VR.NUANCE: Credentials present");
-                            }
-                            return true;
-                        }
+                return false;
+            } else {
+                if (DEBUG) {
+                    Log.i(CLS_NAME, "checkNuanceConfig: Defaults.TTS.NUANCE: Credentials present");
                 }
+                return true;
+            }
+        }
+
+        if (Defaults.LanguageModel.NUANCE == params.getLanguageModel()) {
+            if (DEBUG) {
+                Log.i(CLS_NAME, "checkNuanceConfig: LanguageModel.NUANCE");
+            }
+
+            if (params.getNUANCE_CONTEXT_TAG().startsWith(_YOUR_)) {
+                if (DEBUG) {
+                    Log.e(CLS_NAME, "checkNuanceConfig: LanguageModel.NUANCE_NLU: CONTEXT TAG missing");
+                }
+                return false;
+            } else if (!params.getNUANCE_SERVER_URI_NLU().toString().contains(NUANCE_NLU_HOST)) {
+                if (DEBUG) {
+                    Log.e(CLS_NAME, "checkNuanceConfig: LanguageModel.NUANCE_NLU HOST requires " + NUANCE_NLU_HOST);
+                }
+                return false;
+            } else {
+                if (DEBUG) {
+                    Log.i(CLS_NAME, "checkNuanceConfig: LanguageModel.NUANCE_NLU: Credentials present");
+                }
+                return true;
+            }
+        }
+
+        if (Defaults.VR.NUANCE == params.getVRProvider()) {
+            if (DEBUG) {
+                Log.i(CLS_NAME, "checkNuanceConfig: PROVIDER_VR.NUANCE");
+            }
+
+            if (params.getNUANCE_APP_KEY().startsWith(_YOUR_)) {
+                if (DEBUG) {
+                    Log.e(CLS_NAME, "checkNuanceConfig: PROVIDER_VR.NUANCE: API key missing");
+                }
+                return false;
+            } else if (params.getNUANCE_SERVER_URI().toString().startsWith(_YOUR_)) {
+                if (DEBUG) {
+                    Log.e(CLS_NAME, "checkNuanceConfig: PROVIDER_VR.NUANCE: URI missing");
+                }
+                return false;
+            } else {
+                if (DEBUG) {
+                    Log.i(CLS_NAME, "checkNuanceConfig: PROVIDER_VR.NUANCE: Credentials present");
+                }
+                return true;
+            }
         }
 
         return true;
@@ -1101,7 +1103,7 @@ public class SaiyRequest {
 
                 for (final Locale loc : ttsLocales) {
                     if (DEBUG) {
-                        Log.i(CLS_NAME, "ttsLoc: comparing: " + userLocale.toString() + " ~ " + loc.toString());
+                        Log.i(CLS_NAME, "ttsLoc: comparing: " + userLocale + " ~ " + loc);
                     }
 
                     if (loc.equals(userLocale)) {
@@ -1115,7 +1117,7 @@ public class SaiyRequest {
 
                 for (final Locale loc : ttsLocales) {
                     if (DEBUG) {
-                        Log.i(CLS_NAME, "ttsLoc: comparing: " + userLocale.toString() + " ~ " + loc.toString());
+                        Log.i(CLS_NAME, "ttsLoc: comparing: " + userLocale + " ~ " + loc);
                     }
 
                     try {
@@ -1168,7 +1170,7 @@ public class SaiyRequest {
 
                 for (final Locale loc : vrLocales) {
                     if (DEBUG) {
-                        Log.i(CLS_NAME, "vrLoc: comparing: " + userLocale.toString() + " ~ " + loc.toString());
+                        Log.i(CLS_NAME, "vrLoc: comparing: " + userLocale + " ~ " + loc);
                     }
 
                     if (loc.equals(userLocale)) {
@@ -1182,7 +1184,7 @@ public class SaiyRequest {
 
                 for (final Locale loc : vrLocales) {
                     if (DEBUG) {
-                        Log.i(CLS_NAME, "vrLoc: comparing: " + userLocale.toString() + " ~ " + loc.toString());
+                        Log.i(CLS_NAME, "vrLoc: comparing: " + userLocale + " ~ " + loc);
                     }
 
                     try {

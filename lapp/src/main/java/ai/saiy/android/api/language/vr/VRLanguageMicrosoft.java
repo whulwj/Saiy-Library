@@ -62,7 +62,7 @@ public enum VRLanguageMicrosoft {
     KOREAN("ko-KR"),
     POLISH("pl-PL");
 
-    private static final boolean DEBUG = Defaults.getLogging();
+    private static final boolean DEBUG = Defaults.DEBUG;
     private static final String CLS_NAME = VRLanguageMicrosoft.class.getSimpleName();
 
     private final String localeString;
@@ -105,7 +105,7 @@ public enum VRLanguageMicrosoft {
                 locale = new Locale(tokens.nextToken(), tokens.nextToken());
 
                 if (DEBUG) {
-                    Log.i(CLS_NAME, "locale: " + locale.toString());
+                    Log.i(CLS_NAME, "locale: " + locale);
                 }
 
                 if (locale.equals(formattedLocale)) {
@@ -136,7 +136,7 @@ public enum VRLanguageMicrosoft {
                 locale = new Locale(tokens.nextToken(), tokens.nextToken());
 
                 if (DEBUG) {
-                    Log.i(CLS_NAME, "locale: " + locale.toString());
+                    Log.i(CLS_NAME, "locale: " + locale);
                 }
 
                 // Perhaps this should not return true for many cases.
@@ -184,7 +184,7 @@ public enum VRLanguageMicrosoft {
                 locale = new Locale(tokens.nextToken(), tokens.nextToken());
 
                 if (DEBUG) {
-                    Log.i(CLS_NAME, "locale: " + locale.toString());
+                    Log.i(CLS_NAME, "locale: " + locale);
                 }
 
                 if (locale.equals(formattedLocale)) {
@@ -215,7 +215,7 @@ public enum VRLanguageMicrosoft {
                 locale = new Locale(tokens.nextToken(), tokens.nextToken());
 
                 if (DEBUG) {
-                    Log.i(CLS_NAME, "locale: " + locale.toString());
+                    Log.i(CLS_NAME, "locale: " + locale);
                 }
 
                 // Perhaps this should not return true for many cases.

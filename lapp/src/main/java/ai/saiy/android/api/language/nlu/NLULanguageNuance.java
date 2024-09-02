@@ -34,7 +34,7 @@ public enum NLULanguageNuance {
 
     English_US("eng-USA");
 
-    private static final boolean DEBUG = Defaults.getLogging();
+    private static final boolean DEBUG = Defaults.DEBUG;
     private static final String CLS_NAME = NLULanguageNuance.class.getSimpleName();
 
     private final String localeString;
@@ -77,7 +77,7 @@ public enum NLULanguageNuance {
                 locale = new Locale(tokens.nextToken(), tokens.nextToken());
 
                 if (DEBUG) {
-                    Log.i(CLS_NAME, "locale: " + locale.toString());
+                    Log.i(CLS_NAME, "locale: " + locale);
                 }
 
                 if (locale.equals(iso3Locale)) {
@@ -101,7 +101,7 @@ public enum NLULanguageNuance {
                 locale = new Locale(tokens.nextToken(), tokens.nextToken());
 
                 if (DEBUG) {
-                    Log.i(CLS_NAME, "locale: " + locale.toString());
+                    Log.i(CLS_NAME, "locale: " + locale);
                 }
 
                 // Perhaps this should not return true for many cases.
@@ -149,7 +149,7 @@ public enum NLULanguageNuance {
                 locale = new Locale(tokens.nextToken(), tokens.nextToken());
 
                 if (DEBUG) {
-                    Log.i(CLS_NAME, "locale: " + locale.toString());
+                    Log.i(CLS_NAME, "locale: " + locale);
                 }
 
                 if (locale.equals(iso3Locale)) {
@@ -173,7 +173,7 @@ public enum NLULanguageNuance {
                 locale = new Locale(tokens.nextToken(), tokens.nextToken());
 
                 if (DEBUG) {
-                    Log.i(CLS_NAME, "locale: " + locale.toString());
+                    Log.i(CLS_NAME, "locale: " + locale);
                 }
 
                 // Perhaps this should not return true for many cases.

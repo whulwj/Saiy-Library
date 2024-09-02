@@ -41,7 +41,7 @@ public class LocalUtils {
         throw new IllegalArgumentException(Resources.getSystem().getString(android.R.string.no));
     }
 
-    private static final boolean DEBUG = Defaults.getLogging();
+    private static final boolean DEBUG = Defaults.DEBUG;
     private static final String CLS_NAME = LocalUtils.class.getSimpleName();
 
     public static final String LOCALE_DELIMITER_1 = "-";

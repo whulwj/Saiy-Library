@@ -29,7 +29,7 @@ public enum Gender {
     FEMALE,
     UNDEFINED;
 
-    private static final boolean DEBUG = Defaults.getLogging();
+    private static final boolean DEBUG = Defaults.DEBUG;
     private static final String CLS_NAME = Gender.class.getSimpleName();
 
     public static Gender getGender(final int gender) {

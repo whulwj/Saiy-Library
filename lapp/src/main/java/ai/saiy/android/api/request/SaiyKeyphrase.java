@@ -24,6 +24,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -38,7 +39,7 @@ import ai.saiy.android.api.Defaults;
  */
 public class SaiyKeyphrase {
 
-    private final boolean DEBUG = Defaults.getLogging();
+    private static final boolean DEBUG = Defaults.DEBUG;
     private final String CLS_NAME = SaiyKeyphrase.class.getSimpleName();
 
     public static final String SAIY_KEYPHRASE = "keyphrase";
@@ -131,7 +132,7 @@ public class SaiyKeyphrase {
             saiyIntent.putExtra(SAIY_KEYPHRASE, keyphrase);
             saiyIntent.putExtra(SAIY_ACTION, action);
             saiyIntent.putExtra(SAIY_KEYPHRASE_ID, requestId);
-            saiyIntent.putExtra(KEYPHRASE_REGEX, regex == null ? Regex.MATCHES : regex);
+            saiyIntent.putExtra(KEYPHRASE_REGEX, (Parcelable) (regex == null ? Regex.MATCHES : regex));
             saiyIntent.putExtra(REGEX_CONTENT, regularExpression);
 
             if (bundle != null && !bundle.isEmpty()) {

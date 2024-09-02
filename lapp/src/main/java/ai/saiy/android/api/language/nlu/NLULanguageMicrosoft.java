@@ -39,7 +39,7 @@ public enum NLULanguageMicrosoft {
     ITALIAN("it-IT"),
     SPANISH_SPAIN("es-ES");
 
-    private static final boolean DEBUG = Defaults.getLogging();
+    private static final boolean DEBUG = Defaults.DEBUG;
     private static final String CLS_NAME = NLULanguageMicrosoft.class.getSimpleName();
 
     private final String localeString;
@@ -82,7 +82,7 @@ public enum NLULanguageMicrosoft {
                 locale = new Locale(tokens.nextToken(), tokens.nextToken());
 
                 if (DEBUG) {
-                    Log.i(CLS_NAME, "locale: " + locale.toString());
+                    Log.i(CLS_NAME, "locale: " + locale);
                 }
 
                 if (locale.equals(formattedLocale)) {
@@ -113,7 +113,7 @@ public enum NLULanguageMicrosoft {
                 locale = new Locale(tokens.nextToken(), tokens.nextToken());
 
                 if (DEBUG) {
-                    Log.i(CLS_NAME, "locale: " + locale.toString());
+                    Log.i(CLS_NAME, "locale: " + locale);
                 }
 
                 // Perhaps this should not return true for many cases.
@@ -161,7 +161,7 @@ public enum NLULanguageMicrosoft {
                 locale = new Locale(tokens.nextToken(), tokens.nextToken());
 
                 if (DEBUG) {
-                    Log.i(CLS_NAME, "locale: " + locale.toString());
+                    Log.i(CLS_NAME, "locale: " + locale);
                 }
 
                 if (locale.equals(formattedLocale)) {
@@ -192,7 +192,7 @@ public enum NLULanguageMicrosoft {
                 locale = new Locale(tokens.nextToken(), tokens.nextToken());
 
                 if (DEBUG) {
-                    Log.i(CLS_NAME, "locale: " + locale.toString());
+                    Log.i(CLS_NAME, "locale: " + locale);
                 }
 
                 // Perhaps this should not return true for many cases.

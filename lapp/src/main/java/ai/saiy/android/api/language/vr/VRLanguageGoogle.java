@@ -121,7 +121,7 @@ public enum VRLanguageGoogle {
     Chinese_Mandarin_Simplified_Hong_Kong("cmn-Hans-HK"),
     CHINESE_MANDARIN_SIMPLIFIED_CHINA("cmn-Hans-CN");
 
-    private static final boolean DEBUG = Defaults.getLogging();
+    private static final boolean DEBUG = Defaults.DEBUG;
     private static final String CLS_NAME = VRLanguageGoogle.class.getSimpleName();
 
     private final String localeString;
@@ -164,7 +164,7 @@ public enum VRLanguageGoogle {
                 locale = new Locale(tokens.nextToken(), tokens.nextToken());
 
                 if (DEBUG) {
-                    Log.i(CLS_NAME, "locale: " + locale.toString());
+                    Log.i(CLS_NAME, "locale: " + locale);
                 }
 
                 if (locale.equals(formattedLocale)) {
@@ -195,7 +195,7 @@ public enum VRLanguageGoogle {
                 locale = new Locale(tokens.nextToken(), tokens.nextToken());
 
                 if (DEBUG) {
-                    Log.i(CLS_NAME, "locale: " + locale.toString());
+                    Log.i(CLS_NAME, "locale: " + locale);
                 }
 
                 // Perhaps this should not return true for many cases.
@@ -243,7 +243,7 @@ public enum VRLanguageGoogle {
                 locale = new Locale(tokens.nextToken(), tokens.nextToken());
 
                 if (DEBUG) {
-                    Log.i(CLS_NAME, "locale: " + locale.toString());
+                    Log.i(CLS_NAME, "locale: " + locale);
                 }
 
                 if (locale.equals(formattedLocale)) {
@@ -274,7 +274,7 @@ public enum VRLanguageGoogle {
                 locale = new Locale(tokens.nextToken(), tokens.nextToken());
 
                 if (DEBUG) {
-                    Log.i(CLS_NAME, "locale: " + locale.toString());
+                    Log.i(CLS_NAME, "locale: " + locale);
                 }
 
                 // Perhaps this should not return true for many cases.

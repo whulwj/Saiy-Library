@@ -118,7 +118,7 @@ public enum TTSLanguageNuance {
     TURKISH_CEM("Cem", Gender.MALE, "tur-TUR"),
     TURKISH_YELDA("Yelda", Gender.FEMALE, "tur-TUR");
 
-    private static final boolean DEBUG = Defaults.getLogging();
+    private static final boolean DEBUG = Defaults.DEBUG;
     private static final String CLS_NAME = TTSLanguageNuance.class.getSimpleName();
 
     private final String name;
@@ -173,7 +173,7 @@ public enum TTSLanguageNuance {
                 voiceLocale = new Locale(tokens.nextToken(), tokens.nextToken());
 
                 if (DEBUG) {
-                    Log.i(CLS_NAME, "voiceLocale: " + voiceLocale.toString());
+                    Log.i(CLS_NAME, "voiceLocale: " + voiceLocale);
                 }
 
                 if (voiceLocale.equals(iso3Locale)) {
@@ -213,7 +213,7 @@ public enum TTSLanguageNuance {
                 voiceLocale = new Locale(tokens.nextToken(), tokens.nextToken());
 
                 if (DEBUG) {
-                    Log.i(CLS_NAME, "voiceLocale: " + voiceLocale.toString());
+                    Log.i(CLS_NAME, "voiceLocale: " + voiceLocale);
                 }
 
                 // Perhaps this should not return true for many cases.
@@ -262,7 +262,7 @@ public enum TTSLanguageNuance {
                 voiceLocale = new Locale(tokens.nextToken(), tokens.nextToken());
 
                 if (DEBUG) {
-                    Log.i(CLS_NAME, "voiceLocale: " + voiceLocale.toString());
+                    Log.i(CLS_NAME, "voiceLocale: " + voiceLocale);
                 }
 
                 if (voiceLocale.equals(iso3Locale)) {
@@ -298,7 +298,7 @@ public enum TTSLanguageNuance {
                     voiceLocale = new Locale(tokens.nextToken(), tokens.nextToken());
 
                     if (DEBUG) {
-                        Log.i(CLS_NAME, "voiceLocale: " + voiceLocale.toString());
+                        Log.i(CLS_NAME, "voiceLocale: " + voiceLocale);
                     }
 
                     // Perhaps this should not return true for many cases.

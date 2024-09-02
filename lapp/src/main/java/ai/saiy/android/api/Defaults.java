@@ -25,28 +25,13 @@ import android.util.Log;
 public class Defaults {
 
     /**
+     * Check if logging is enabled: if true, turn on the log output; false otherwise
      * MUST NOT BE SET TO TRUE IN PRODUCTION!
      */
-    private static boolean DEBUG = false;
+    public static final boolean DEBUG = false;
+    public static final String EXTRA_SPEECH_PRIORITY = "extra_speech_priority";
+    public static final int PRIORITY_REMOTE = 10;
     private static final String CLS_NAME = Defaults.class.getSimpleName();
-
-    /**
-     * Turn on the log output. MUST NOT BE SET TO TRUE IN PRODUCTION!
-     *
-     * @param enabled true to show log output, false otherwise
-     */
-    public static void setLogging(final boolean enabled) {
-        DEBUG = enabled;
-    }
-
-    /**
-     * Check if logging is enabled.
-     *
-     * @return true if enabled, false otherwise
-     */
-    public static boolean getLogging() {
-        return DEBUG;
-    }
 
     public enum LanguageModel {
         LOCAL,

@@ -50,7 +50,7 @@ import ai.saiy.android.service.ISaiyListener;
  */
 public class RemoteServiceConnector {
 
-    private final boolean DEBUG = Defaults.getLogging();
+    private static final boolean DEBUG = Defaults.DEBUG;
     private final String CLS_NAME = RemoteServiceConnector.class.getSimpleName();
 
     private boolean bound = false;
@@ -60,7 +60,7 @@ public class RemoteServiceConnector {
     private long then;
 
     private final Context mContext;
-    private volatile SaiyListener listener;
+    private final SaiyListener listener;
     private final SaiyRequest saiyRequest;
     private final Bundle bundle;
 
@@ -114,12 +114,12 @@ public class RemoteServiceConnector {
                 e.printStackTrace();
             }
 
-            Log.e("Saiy", "SecurityException: Service requires the permission "
+            Log.e(CLS_NAME, "SecurityException: Service requires the permission "
                     + SaiyRequest.CONTROL_SAIY);
         }
     }
 
-    private ISaiyListener.Stub iSaiyListener = new ISaiyListener.Stub() {
+    private final ISaiyListener.Stub iSaiyListener = new ISaiyListener.Stub() {
 
         @SuppressWarnings("RedundantThrows")
         @Override
@@ -177,8 +177,8 @@ public class RemoteServiceConnector {
         }
     };
 
-    private ServiceConnection mConnection = new ServiceConnection() {
-
+    private final ServiceConnection mConnection = new ServiceConnection() {
+        @Override
         public void onServiceConnected(final ComponentName className, final IBinder iBinder) {
             if (DEBUG) {
                 Log.i(CLS_NAME, "onServiceConnected");
@@ -205,14 +205,14 @@ public class RemoteServiceConnector {
                                 if (DEBUG) {
                                     Log.i(CLS_NAME, "onServiceConnected: ACTION_SPEAK_ONLY");
                                 }
-                                bundle.putInt("extra_speech_priority", 10);
+                                bundle.putInt(Defaults.EXTRA_SPEECH_PRIORITY, Defaults.PRIORITY_REMOTE);
                                 iSaiy.speakOnly(iSaiyListener, bundle);
                                 break;
                             case SPEAK_LISTEN:
                                 if (DEBUG) {
                                     Log.i(CLS_NAME, "onServiceConnected: ACTION_SPEAK_LISTEN");
                                 }
-                                bundle.putInt("extra_speech_priority", 10);
+                                bundle.putInt(Defaults.EXTRA_SPEECH_PRIORITY, Defaults.PRIORITY_REMOTE);
                                 iSaiy.speakListen(iSaiyListener, bundle);
                                 break;
                             default:
@@ -256,9 +256,19 @@ public class RemoteServiceConnector {
             doUnbindService();
         }
 
+        @Override
         public void onServiceDisconnected(final ComponentName className) {
             if (DEBUG) {
                 Log.i(CLS_NAME, "onServiceDisconnected");
+            }
+
+            iSaiy = null;
+        }
+
+        @Override
+        public void onBindingDied(ComponentName name) {
+            if (DEBUG) {
+                Log.i(CLS_NAME, "onBindingDied");
             }
 
             iSaiy = null;
@@ -344,4 +354,3 @@ public class RemoteServiceConnector {
         return SaiyRequestParams.ID_UNKNOWN;
     }
 }
-

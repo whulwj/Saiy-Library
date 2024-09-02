@@ -17,6 +17,8 @@
 
 package ai.saiy.android.api.request;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 
 import androidx.annotation.Nullable;
@@ -29,7 +31,7 @@ import ai.saiy.android.api.Defaults;
  * <p>
  * Created by benrandall76@gmail.com on 03/10/2016.
  */
-public enum Regex {
+public enum Regex implements Parcelable {
 
     MATCHES,
     STARTS_WITH,
@@ -37,8 +39,26 @@ public enum Regex {
     CONTAINS,
     CUSTOM;
 
-    private static final boolean DEBUG = Defaults.getLogging();
+    private static final boolean DEBUG = Defaults.DEBUG;
     private static final String CLS_NAME = Regex.class.getSimpleName();
+
+    public static final Creator<Regex> CREATOR = new Creator<Regex>() {
+        @Override
+        public Regex createFromParcel(Parcel in) {
+            final byte index = in.readByte();
+            for (Regex regex : values()) {
+                if (index == regex.ordinal()) {
+                    return regex;
+                }
+            }
+            return Regex.MATCHES;
+        }
+
+        @Override
+        public Regex[] newArray(int size) {
+            return new Regex[size];
+        }
+    };
 
     /**
      * Get the Regex type from its string representation
@@ -60,5 +80,15 @@ public enum Regex {
         }
 
         return MATCHES;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int flags) {
+        parcel.writeByte((byte) ordinal());
     }
 }

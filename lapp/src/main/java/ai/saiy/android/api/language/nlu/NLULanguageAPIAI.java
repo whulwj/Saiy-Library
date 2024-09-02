@@ -50,7 +50,7 @@ public enum NLULanguageAPIAI {
     SPANISH("es"),
     UKRAINIAN("uk");
 
-    private static final boolean DEBUG = Defaults.getLogging();
+    private static final boolean DEBUG = Defaults.DEBUG;
     private static final String CLS_NAME = NLULanguageAPIAI.class.getSimpleName();
 
     private final String localeString;
@@ -106,7 +106,7 @@ public enum NLULanguageAPIAI {
                 if (locale != null) {
 
                     if (DEBUG) {
-                        Log.i(CLS_NAME, "locale: " + locale.toString());
+                        Log.i(CLS_NAME, "locale: " + locale);
                     }
 
                     if (locale.equals(formattedLocale)) {
@@ -154,7 +154,7 @@ public enum NLULanguageAPIAI {
 
                 if (locale != null) {
                     if (DEBUG) {
-                        Log.i(CLS_NAME, "locale: " + locale.toString());
+                        Log.i(CLS_NAME, "locale: " + locale);
                     }
 
                     // Perhaps this should not return true for many cases.
@@ -220,7 +220,7 @@ public enum NLULanguageAPIAI {
                 if (locale != null) {
 
                     if (DEBUG) {
-                        Log.i(CLS_NAME, "locale: " + locale.toString());
+                        Log.i(CLS_NAME, "locale: " + locale);
                     }
 
                     if (locale.equals(formattedLocale)) {
@@ -269,7 +269,7 @@ public enum NLULanguageAPIAI {
                 if (locale != null) {
 
                     if (DEBUG) {
-                        Log.i(CLS_NAME, "locale: " + locale.toString());
+                        Log.i(CLS_NAME, "locale: " + locale);
                     }
 
                     // Perhaps this should not return true for many cases.
