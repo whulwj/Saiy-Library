@@ -1,0 +1,48 @@
+<resources>
+    <string name="app_name">Saiy库</string>
+
+
+    <!-- Permission Request Strings -->
+    <string name="permission_rationale" translatable="true">"没有这些权限，应用程序将无法使用文字转语音和语音识别功能。"</string>
+
+    <!-- Error Strings -->
+    <string name="error_action" translatable="true">"您未能正确定义要执行的操作。
+        请从RemoteRequest类的ACTION列表中选择一个已定义的操作"</string>
+    <string name="error_provider_tts" translatable="true">"您未能正确定义要使用的文字转语音程序。请从RemoteRequest类的文字转语音列表中选择一个预定义的程序"</string>
+    <string name="error_provider_vr" translatable="true">"您未能正确定义要使用的语音识别程序。请在RemoteRequest类的语音识别列表中选择一个预定义的程序"</string>
+    <string name="error_api_google_chromium" translatable="true">"您未能在SaiyConfiguration类中包含Google API密钥"</string>
+    <string name="error_api_google_cloud" translatable="true">"您未能在SaiyConfiguration类中包含Google访问令牌。
+        或者，令牌过期时间可能太短或被忽略。"</string>
+    <string name="error_api_nuance" translatable="true">"您未能在SaiyConfiguration类中包含Nuance API密钥"</string>
+    <string name="error_api_nuance_nlu" translatable="true">"必须将Nuance HOST设置为nmsps.dev.nuance.com才能使用Mix.nlu"</string>
+    <string name="error_api_microsoft" translatable="true">"未能在SaiyConfiguration类中包含Microsoft凭证"</string>
+    <string name="error_api_wit" translatable="true">"您未能在SaiyConfiguration类中包含您的Wit凭证"</string>
+    <string name="error_api_ibm" translatable="true">"您未能在SaiyConfiguration类中包含IBM凭证"</string>
+
+    <string name="error_utterance" translatable="true">"您未设置要转语音的话语。
+        如果需要静默，请使用RemoteRequest类中的常量SILENCE，从而将其标记为故意的"</string>
+    <string name="error_misconfigured" translatable="true">"此应用程序无法完成您的语音请求。"</string>
+
+    <!-- Error Logcat Strings -->
+    <string name="error_package_blacklisted" translatable="true">"程序包%1$s已被列入黑名单，因此被拒绝进行远程访问。
+        如果用户愿意，可以从Saiy设置中解除此限制。"</string>
+    <string name="error_package_name_null" translatable="true">"请求包名为null。拒绝"</string>
+    <string name="error_throttle_limit" translatable="true">"短时间内发出的远程请求过多。拒绝"</string>
+    <string name="error_intent_null" translatable="true">"请求intent为null。拒绝"</string>
+    <string name="error_saiylistener_null" translatable="true">"SaiyListener为null，因此请求被忽略"</string>
+    <string name="error_bundle_corrupt" translatable="true">"远程Bundle已损坏，请求被忽略"</string>
+    <string name="error_bundle_null" translatable="true">"远程Bundle为null，请求被忽略"</string>
+    <string name="error_request_parcel_params_invalid" translatable="true">"远程RequestParcel参数无效，请求被忽略"</string>
+    <string name="error_request_parcel_invalid" translatable="true">"远程RequestParcel无效，请求被忽略"</string>
+    <string name="error_requestid_invalid" translatable="true">"请求ID为null或为空，请求被忽略"</string>
+    <string name="error_utterance_invalid" translatable="true">"话语为null或为空，应该使用常量SILENCE，请求被忽略"</string>
+    <string name="error_action_invalid" translatable="true">"未知的ACTION请求被忽略"</string>
+    <string name="error_tts_invalid" translatable="true">"未知的Defaults.TTS请求被忽略"</string>
+    <string name="error_vr_invalid" translatable="true">"未知的Defaults.VR请求被忽略"</string>
+    <string name="error_lm_invalid" translatable="true">"未知的Defaults.LanguageModel请求被忽略"</string>
+    <string name="error_nuance_config" translatable="true">"NUANCE API配置错误 - 请求被忽略"</string>
+    <string name="error_microsoft_config" translatable="true">"微软API配置错误 - 请求被忽略"</string>
+    <string name="error_google_config" translatable="true">"缺少谷歌API密钥 - 请求被忽略"</string>
+    <string name="error_remote_config" translatable="true">"远程配置错误 - 请求被忽略"</string>
+
+</resources>
