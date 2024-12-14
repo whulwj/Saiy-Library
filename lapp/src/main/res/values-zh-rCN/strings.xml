@@ -1,7 +1,4 @@
 <resources>
-    <string name="app_name">Saiy库</string>
-
-
     <!-- Permission Request Strings -->
     <string name="permission_rationale" translatable="true">"没有这些权限，应用程序将无法使用文字转语音和语音识别功能。"</string>
 

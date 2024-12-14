@@ -16,9 +16,6 @@
   -->
 
 <resources>
-    <string name="app_name">Saiy Library</string>
-
-
     <!-- Library Testing Strings -->
     <string name="library_intro" translatable="false">"This is a remote intro"</string>
     <string name="library_speak" translatable="false">"This is a remote speech request"</string>
