@@ -44,8 +44,8 @@ public class SaiyKeyphrase {
 
     public static final String SAIY_KEYPHRASE = "keyphrase";
     private static final String SAIY_HOT_WORD = "hot_word";
-    public static final String SAIY_ACTION = "ai.saiy.android.SAIY_ACTION";
-    public static final String SAIY_REQUEST_RECEIVER = "ai.saiy.android.SAIY_REQUEST_RECEIVER";
+    public static final String SAIY_ACTION = "assistant.saiy.android.SAIY_ACTION";
+    public static final String SAIY_REQUEST_RECEIVER = "assistant.saiy.android.SAIY_REQUEST_RECEIVER";
     public static final String REQUESTING_PACKAGE = "requesting_package";
     public static final String KEYPHRASE_REGEX = "keyphrase_regex";
     public static final String REGEX_CONTENT = "regex_content";
